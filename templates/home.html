@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+<html>
+<head>
+ <title>Raspberry Pi NAS Box</title>
+ <link href="static/style.css" rel="stylesheet" type="text/css">
+ <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css"> 
+</head>
+<body>
+<div class="main-out">
+<div class="main">
+<div class="page">
+<div class="top">
+<div class="books">
+<div class="header-top" class="page-header">
+<h1><span>Welcome to Raspberry Pi NAS Box</span></h1>
+
+</div>
+<div class="topmenu">
+<ul>
+  <li class="active"><a href="/">Login</a></li>
+  <li><a href="/register">Register </a></li>
+  
+</ul>
+</div>
+
+</div>
+<div class="content">
+<div class="content-left">
+<div class="row1">
+
+<div class="welcome">
+<center>
+<br><br><br>
+<form class="form-inline" action="/signup" method="post">
+ Username : <input class="form-control" placeholder="Username" name="username" type=text value="{{
+          request.form.username }}" required></input><br><br>
+ Password : <input class="form-control" placeholder="Password" name="password" type=password value="{{
+          request.form.password }}" required></input><br><br>
+<input type=submit class="btn btn-primary" value=Login> <br><br>
+<a href="forget.html">Forget Password</a>
+<br>
+</form>
+ {% if error %}
+<div class="alert alert-danger">
+ <p><h2 style="color:RED;">Error: {{ error }}</h2></p>
+  </div>     
+ {% endif %}
+</center>
+</div>
+</div>
+</div>
+<div class="content-right">
+<img src="/static/images/logo.svg">
+</div>
+<div class="bottom">
+<ul>
+  <li style="border-left: medium none;">
+  <li><a href="/">Login</a></li>
+  <li><a href="/register">Register </a></li>
+</ul>
+
+
+</body>
+</html>

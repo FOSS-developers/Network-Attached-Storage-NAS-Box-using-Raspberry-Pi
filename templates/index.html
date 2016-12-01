@@ -1,0 +1,258 @@
+ <!DOCTYPE html>
+<html>
+<head>
+
+  <title>Raspberry Pi NAS Box</title>
+  <link href="static/style.css" rel="stylesheet" type="text/css">
+  <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="main-out">
+<div class="main">
+<div class="page">
+<div class="top">
+<div class="books">
+<div class="header-top">
+<h1><span>NAS Box using Raspberry Pi</span></h1>
+
+</div>
+<div class="topmenu">
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about us.html">About Us </a></li>
+  <li><a href="what's new.html">What's New</a></li>
+  <li><a href="services.html">Connectivity</a></li>
+ <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
+</ul>
+</div>
+
+</div>
+<div class="content">
+<div class="content-left">
+<div class="row1">
+<div class="welcome">
+<h1 class="title">Raspberry Pi -<span> System Info</span></h1>
+
+
+<h2>Generic Details</h2>
+
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+Name of the Pi
+</td>
+<td>
+{{ host }}
+</td>
+</tr>
+<tr>
+<td>
+System Time
+</td>
+<td>
+{{ time }}
+</td>
+</tr>
+<tr>
+<td>
+Hardware Type
+</td>
+<td>
+{{ model }}
+</td>
+</tr>
+<tr>
+<td>
+Serial Number
+</td>
+<td>
+{{ serial }}
+</td>
+</tr>
+<tr>
+<td>
+Start time 
+</td>
+<td>
+{{ start_time }}
+</td>
+</tr>
+<tr>
+<td>
+Running Duration
+</td>
+<td>
+{{ running_duration }}
+</td>
+</tr>
+<tr>
+<td>
+Operating System
+</td>
+<td>
+{{ release }}
+</td>
+</tr>
+<tr>
+<td>
+IP Address
+</td>
+<td>
+{{ IP }}
+</td>
+</tr>
+</table>
+</div>
+
+<table align=right>
+<tr>
+<td>
+<form action="/restart" onclick="return confirm('Do you wish to re-start your system ?')" method="post">
+<input type=submit class="btn btn-primary" style="margin-right: 5px;" value=Restart>
+</form>
+</td>
+<td>
+<form action="/shutdown" onclick="return confirm('Do you wish to shutdown your system ?')" method="post">
+<input type=submit class="btn btn-primary" style="margin-right: 5px;" value=Shutdown>
+</form>
+</td>
+</tr>
+</table>
+<br><br>
+<h2>CPU Details</h2>
+<hr>
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+Processor Type
+</td>
+<td>
+{{ proc_type }}
+</td>
+</tr>
+<tr>
+<td>
+Number of core
+</td>
+<td>
+{{ core }}
+</td>
+</tr>
+<tr>
+<td>
+Temperature
+</td>
+<td>
+{{ temp }} °C
+</td>
+</tr>
+<tr>
+<td>
+CPU Usage
+</td>
+<td>
+{{ cpu_use }} %
+</td>
+</tr>
+</table>
+<br>
+<h2>Memory Details</h2>
+<hr>
+</div>
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+Total Memory
+</td>
+<td>
+{{ total }}
+</td>
+</tr>
+<tr>
+<td>
+In Use
+</td>
+<td>
+{{ used }}
+</td>
+</tr>
+<tr>
+<td>
+Free Memory
+</td>
+<td>
+{{ free }}
+</td>
+</tr>
+</table>
+</div>
+<br>
+<h2>Disk Details</h2>
+<hr>
+<pre style="font-size: 20px;width: 700px;">
+{{ disk }}                   
+</pre>
+<br>
+</p>
+</div>
+</div>
+
+<div class="row2">
+<div class="section1">
+<h2 class="subtitle">Highlights</h2>
+<p><strong>
+</strong><br>
+
+
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="highlights.html" class="more">read more</a></p>
+</div>
+<div class="section2">
+<h2 class="subtitle">Resources</h2>
+<p><strong>
+</strong><br>
+
+
+</p>
+<p>&nbsp;</p>
+<p><a href="resources.html" class="more">read more</a></p>
+</div>
+</div>
+</div>
+<div class="content-right">
+<h2>Main Menu</h2>
+<ul>
+  <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+  <li><a href="http://google.com">Control Panel</a></li>
+  <li><a href="news papers available.html">Video Station</a></li>
+  <li><a href="general rules.html">Audio Station</a></li>
+  <li><a href="anounsment.html">Resource Monitor</a></li>
+  <li><a href="timings.html">Download Station</a></li>
+  <li><a href="facilities.html">Log Center</a></li>
+  <li><a href="e journals.html">Help</a></li>
+ 
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="bottom">
+<ul>
+  <li style="border-left: medium none;">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about us.html">About Us </a></li>
+  <li><a href="what's new.html">What's New</a></li>
+  <li><a href="services.html">Connectivity</a></li>
+</ul>
+
+
+</body>
+</html>
