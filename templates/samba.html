@@ -18,7 +18,7 @@
 </div>
 <div class="topmenu">
 <ul>
-   <li><a href="/home">Home</a></li>
+  <li><a href="/home">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
@@ -31,17 +31,58 @@
 <div class="content-left">
 <div class="row1">
 <div class="welcome">
+<h1 class="title">Raspberry Pi -<span> Samba Share</span></h1>
 
-<h1 class="title">Private Cloud</span></h1>
 
-<h4>Select directory path to share</h4>
-    <form action = "/browse" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" webkitdirectory directory multiple />
-<br>
-         <input type=submit class="btn btn-primary" value="Upload Folder"> <br><br>
-      </form>
-<h4>Uploaded Folder on Raspberry Pi NAS</h4>
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+Enter Directory Name : 
+</td>
+<td>
+<input class="form-control" type="textbox" autofocus/>
+</td>
+</tr>
+<tr>
+<td>
+Enter Network :
+</td>
+<td>
+<input class="form-control" type="textbox"/>
+</td>
+</tr>
+<tr>
+<td>
+Share Name :
+</td>
+<td>
+<input class="form-control" type="textbox"/>
+</td>
+</tr>
+<tr>
+<td>
+Enter Username :
+</td>
+<td>
+<input class="form-control" type="textbox"/>
+</td>
+</tr>
+<tr>
+<td>
+Password
+</td>
+<td>
+<input class="form-control" type="textbox"/>
+</td>
+</tr>
+
+</table>
+<center>
+<input type="submit" class= "btn btn-primary" value="Share"/>
+</center>
+</div>
+
 
 </div>
 </div>
@@ -74,7 +115,7 @@
 <div class="content-right">
 <h2>Main Menu</h2>
 <ul>
-  <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+ <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
   <li><a href="/control_panel">Control Panel</a></li>
   <li><a href="/video">Video Station</a></li>
   <li><a href="/audio">Audio Station</a></li>
@@ -92,7 +133,7 @@
 </div>
 <div class="bottom">
 <ul>
-  <li style="border-left: medium none;">
+   <li style="border-left: medium none;">
   <li><a href="/home">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
@@ -102,4 +143,3 @@
 
 </body>
 </html>
-

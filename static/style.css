@@ -297,4 +297,8 @@ a.more:hover {
 .bottom a:hover {
 	text-decoration: none;
 }
+table, th, td{
+	border: 1px solid white;
+	border-collapse: collapse;
+}
 

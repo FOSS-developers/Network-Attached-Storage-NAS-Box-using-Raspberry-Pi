@@ -1,0 +1,103 @@
+
+ <!DOCTYPE html>
+<html>
+<head>
+
+  <title>Media Player - {{ title }}</title>
+  <link href="static/style.css" rel="stylesheet" type="text/css">
+  <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="main-out">
+<div class="main">
+<div class="page">
+<div class="top">
+<div class="books">
+<div class="header-top">
+<h1><span>NAS Box using Raspberry Pi</span></h1>
+
+</div>
+<div class="topmenu">
+<ul>
+  <li><a href="/home">Home</a></li>
+  <li><a href="/about">About Us </a></li>
+  <li><a href="/new">What's New</a></li>
+  <li><a href="/connectivity">Connectivity</a></li>
+ <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
+</ul>
+</div>
+
+</div>
+<div class="content">
+<div class="content-left">
+<div class="row1">
+<div class="welcome">
+<h1 class="title">Raspberry Pi -<span> Media Player</span></h1>
+
+{% block play%}
+{% for i in range(music_files_number) %}
+    
+    <p><a href="/static/music/{{ music_files[i] }}"> <!{{ i+1 }})> <img src="/static/images/music.jpg" height="50px" width="50px" />{{ music_files[i] }}  </a></p>
+
+
+{% endfor %}
+{% endblock %}
+</div>
+</div>
+
+<div class="row2">
+<div class="section1">
+<h2 class="subtitle">Highlights</h2>
+<p><strong>
+</strong><br>
+
+
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="highlights.html" class="more">read more</a></p>
+</div>
+<div class="section2">
+<h2 class="subtitle">Resources</h2>
+<p><strong>
+</strong><br>
+
+
+</p>
+<p>&nbsp;</p>
+<p><a href="resources.html" class="more">read more</a></p>
+</div>
+</div>
+</div>
+<div class="content-right">
+<h2>Main Menu</h2>
+<ul>
+  <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+  <li><a href="/control_panel">Control Panel</a></li>
+  <li><a href="/video">Video Station</a></li>
+  <li><a href="/audio">Audio Station</a></li>
+  <li><a href="/monitor">Resource Monitor</a></li>
+  <li><a href="/download">Download Station</a></li>
+  <li><a href="/log">Log Center</a></li>
+  <li><a href="/help">Help</a></li>
+ 
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="bottom">
+<ul>
+  <li style="border-left: medium none;">
+  <li><a href="/home">Home</a></li>
+  <li><a href="/about">About Us </a></li>
+  <li><a href="/new">What's New</a></li>
+  <li><a href="/connectivity">Connectivity</a></li>
+</ul>
+
+
+</body>
+</html>

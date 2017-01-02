@@ -18,7 +18,7 @@
 </div>
 <div class="topmenu">
 <ul>
-   <li><a href="/home">Home</a></li>
+ <li><a href="/home">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
@@ -31,18 +31,102 @@
 <div class="content-left">
 <div class="row1">
 <div class="welcome">
+<h1 class="title">Raspberry Pi NAS -<span> Control Panel</span></h1>
 
-<h1 class="title">Private Cloud</span></h1>
 
-<h4>Select directory path to share</h4>
-    <form action = "/browse" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" webkitdirectory directory multiple />
+<h2>File Sharing</h2>
+
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+<img src="/static/images/shared.ico" height="50px" width="50px"/>
+</td>
+<td>
+<img src="/static/images/user.jpg" height="50px" width="50px"/>
+</td>
+<td>
+<img src="/static/images/user.jpg" height="50px" width="50px"/>
+</td>
+<td>
+<img src="/static/images/group.png" height="50px" width="50px"/>
+</td>
+<td>
+<img src="/static/images/domain.png" height="50px" width="50px"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="/samba">Share Folder</a>
+</td>
+<td>
+<a href="/backup">Automated backup</a>
+</td>
+
+
+<td>
+User
+</td>
+
+
+<td>
+Group
+</td>
+
+
+<td>
+Domain/LDAP
+</td>
+
+</tr>
+</table>
+</div>
 <br>
-         <input type=submit class="btn btn-primary" value="Upload Folder"> <br><br>
-      </form>
-<h4>Uploaded Folder on Raspberry Pi NAS</h4>
+<h2>Connectivity</h2>
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
 
+<tr>
+<td>
+Network
+</td>
+<td>
+{{ serial }}
+</td>
+
+<td>
+DHCP Service
+</td>
+<td>
+{{ start_time }}
+</td>
+
+<td>
+User
+</td>
+<td>
+{{ running_duration }}
+</td>
+
+<td>
+Group
+</td>
+<td>
+{{ release }}
+</td>
+
+<td>
+Domain/LDAP
+</td>
+<td>
+<!{{ IP }}>
+</td>
+</tr>
+</table>
+</div>
+
+<br>
 </div>
 </div>
 
@@ -74,7 +158,7 @@
 <div class="content-right">
 <h2>Main Menu</h2>
 <ul>
-  <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+   <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
   <li><a href="/control_panel">Control Panel</a></li>
   <li><a href="/video">Video Station</a></li>
   <li><a href="/audio">Audio Station</a></li>
@@ -82,7 +166,6 @@
   <li><a href="/download">Download Station</a></li>
   <li><a href="/log">Log Center</a></li>
   <li><a href="/help">Help</a></li>
- 
 </ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -102,4 +185,3 @@
 
 </body>
 </html>
-

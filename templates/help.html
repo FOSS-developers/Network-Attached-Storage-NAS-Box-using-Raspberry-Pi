@@ -18,7 +18,7 @@
 </div>
 <div class="topmenu">
 <ul>
-   <li><a href="/home">Home</a></li>
+ <li><a href="/signup">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
@@ -31,17 +31,27 @@
 <div class="content-left">
 <div class="row1">
 <div class="welcome">
+<h1 class="title">Raspberry Pi -<span> Help</span></h1>
+{% if result %}
+<div class="alert alert-danger">
+<p class="blinking" style="color:RED; font-size : 18px;">{{ result }}</p>
+  </div>     
+ {% endif %}
+<form class="form-inline" action="/contact" method="post">
+ Your Name : <input class="form-control" placeholder="Name" name="name" type=text value="{{
+          request.form.name }}" required autofocus></input><br><br>
+ Your E-mail : <input class="form-control" placeholder="Email" name="email" type=email value="{{
+          request.form.email }}" required></input><br><br>
+ Message : <textarea  class="form-control" name="message" value="{{ request.form.message }}"  rows="4" cols="20" required>
 
-<h1 class="title">Private Cloud</span></h1>
+</textarea>
+<br><br>
+<input type=submit class="btn btn-primary" value=Submit style="margin-left : 150px"> <br><br>
 
-<h4>Select directory path to share</h4>
-    <form action = "/browse" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" webkitdirectory directory multiple />
 <br>
-         <input type=submit class="btn btn-primary" value="Upload Folder"> <br><br>
-      </form>
-<h4>Uploaded Folder on Raspberry Pi NAS</h4>
+</form>
+
+  
 
 </div>
 </div>
@@ -74,7 +84,7 @@
 <div class="content-right">
 <h2>Main Menu</h2>
 <ul>
-  <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+    <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
   <li><a href="/control_panel">Control Panel</a></li>
   <li><a href="/video">Video Station</a></li>
   <li><a href="/audio">Audio Station</a></li>
@@ -82,7 +92,6 @@
   <li><a href="/download">Download Station</a></li>
   <li><a href="/log">Log Center</a></li>
   <li><a href="/help">Help</a></li>
- 
 </ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -92,7 +101,7 @@
 </div>
 <div class="bottom">
 <ul>
-  <li style="border-left: medium none;">
+   <li style="border-left: medium none;">
   <li><a href="/home">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
@@ -102,4 +111,3 @@
 
 </body>
 </html>
-
