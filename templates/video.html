@@ -18,7 +18,7 @@
 </div>
 <div class="topmenu">
 <ul>
-   <li><a href="/home">Home</a></li>
+ <li><a href="/home">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
@@ -31,17 +31,25 @@
 <div class="content-left">
 <div class="row1">
 <div class="welcome">
+<h1 class="title">Raspberry Pi -<span> Video Streaming</span></h1>
 
-<h1 class="title">Private Cloud</span></h1>
+<input type="submit" class="btn btn-primary pull-right" value="View Live Cam"/>
 
-<h4>Select directory path to share</h4>
-    <form action = "/browse" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" webkitdirectory directory multiple />
-<br>
-         <input type=submit class="btn btn-primary" value="Upload Folder"> <br><br>
-      </form>
-<h4>Uploaded Folder on Raspberry Pi NAS</h4>
+{% if error %}
+<div class="alert alert-danger">
+<p class="blinking" style="color:RED; font-size : 24px;">Error: {{ error }}</p>
+  </div>     
+ {% endif %}
+
+{% block play%}
+{% for i in range(video_files_number) %}
+   
+    <p><a href="/static/video/{{ video_files[i] }}"> <!{{ i+1 }})> <img src="/static/images/video.jpg" height="50px" width="50px" /> {{ video_files[i] }} </a></p>
+{% endfor %}
+{% endblock %}
+
+<!<img id="bg" src="{{ url_for('video_feed') }}">
+  
 
 </div>
 </div>
@@ -74,7 +82,7 @@
 <div class="content-right">
 <h2>Main Menu</h2>
 <ul>
-  <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+    <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
   <li><a href="/control_panel">Control Panel</a></li>
   <li><a href="/video">Video Station</a></li>
   <li><a href="/audio">Audio Station</a></li>
@@ -82,7 +90,6 @@
   <li><a href="/download">Download Station</a></li>
   <li><a href="/log">Log Center</a></li>
   <li><a href="/help">Help</a></li>
- 
 </ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -92,7 +99,7 @@
 </div>
 <div class="bottom">
 <ul>
-  <li style="border-left: medium none;">
+   <li style="border-left: medium none;">
   <li><a href="/home">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
@@ -102,4 +109,3 @@
 
 </body>
 </html>
-

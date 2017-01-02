@@ -4,6 +4,15 @@
  <title>Raspberry Pi NAS Box</title>
  <link href="static/style.css" rel="stylesheet" type="text/css">
  <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css"> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+function blinker() {
+	$('.blinking').fadeOut(500);
+	$('.blinking').fadeIn(500);
+}
+setInterval(blinker, 1000);
+</script>
 </head>
 <body>
 <div class="main-out">
@@ -33,7 +42,7 @@
 <br><br><br>
 <form class="form-inline" action="/signup" method="post">
  Username : <input class="form-control" placeholder="Username" name="username" type=text value="{{
-          request.form.username }}" required></input><br><br>
+          request.form.username }}" required autofocus></input><br><br>
  Password : <input class="form-control" placeholder="Password" name="password" type=password value="{{
           request.form.password }}" required></input><br><br>
 <input type=submit class="btn btn-primary" value=Login> <br><br>
@@ -42,7 +51,7 @@
 </form>
  {% if error %}
 <div class="alert alert-danger">
- <p><h2 style="color:RED;">Error: {{ error }}</h2></p>
+<p class="blinking" style="color:RED; font-size : 24px;">Error: {{ error }}</p>
   </div>     
  {% endif %}
 </center>
