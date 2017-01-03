@@ -20,8 +20,8 @@ mariadb_connection = mariadb.connect(user='root', password='123', database='nas'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'ntkathole@gmail.com'
-app.config['MAIL_PASSWORD'] = 'N@9765360130'
+app.config['MAIL_USERNAME'] = 'mail@gmail.com'
+app.config['MAIL_PASSWORD'] = '************'
 
 mail = Mail(app)
 
@@ -155,7 +155,7 @@ def contact():
             email=request.form['email']
 	    message=request.form['message']
             total="Name : "+name+"\nEmail : "+email+"\nMessage : "+message
-	    msg = Message('Help-NAS Box using Raspberry Pi', sender = 'ntkathole@gmail.com', recipients = ['nikhilkathole2683@gmail.com'])
+	    msg = Message('Help-NAS Box using Raspberry Pi', sender = 'sender@gmail.com', recipients = ['receiver@gmail.com'])
    	    msg.body = total
   	    mail.send(msg)
             result="Response saved Successfully...Admin will contact within 24 hours."
