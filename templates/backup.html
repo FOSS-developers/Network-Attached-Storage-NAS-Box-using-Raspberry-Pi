@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="main-out">
+<img class="pull-right" src="/static/images/logo.svg">
 <div class="main">
 <div class="page">
 <div class="top">
@@ -20,11 +21,16 @@
 </div>
 <div class="topmenu">
 <ul>
-  <li><a href="/home">Home</a></li>
+  <li><a href="/signup">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
+ <form action="/logout">
+ 
  <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
+</form>
+  
+  <li class="pull-right"><a href="/connectivity"><img src="/static/images/admin.png" height="35px" width="40px" /> {{ username }}</a></li>
 </ul>
 </div>
 
@@ -34,7 +40,11 @@
 <div class="row1">
 <div class="welcome">
 <h1 class="title">Raspberry Pi NAS -<span> Automated Backup</span></h1>
-
+{% if result %}
+<div class="alert alert-danger">
+<p class="blinking" style="color:RED; font-size : 18px;">{{ result }}</p>
+  </div>     
+ {% endif %}
 
 
 <div class="container">
@@ -62,8 +72,16 @@
          <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Backup</a></li>
     <li><a data-toggle="tab" href="#menu1">My Local Files</a></li>
+     
    
   </ul>
+   <h4>Select files/folder to backup :</h4>
+  <form action = "/start_backup" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+<br>
+         <input type=submit class="btn btn-primary" value="Backup Files"> <br><br>
+      </form>
     </div>
     <div id="menu1" class="tab-pane fade">
       <ul class="nav nav-tabs">
@@ -87,7 +105,9 @@
     <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
     <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
   </ul>
-
+        <h4> Schedule Backup</h4>
+        Backup Start Time : <input type="textbox"/><br>
+        <input type="checkbox"/>Daily Backup
     </div>
  <div id="ver2" class="tab-pane fade">
       <ul class="nav nav-tabs">

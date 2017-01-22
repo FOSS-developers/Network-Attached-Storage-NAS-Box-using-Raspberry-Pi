@@ -8,7 +8,9 @@
 </head>
 <body>
 <div class="main-out">
+<img class="pull-right" src="/static/images/logo.svg">
 <div class="main">
+
 <div class="page">
 <div class="top">
 <div class="books">
@@ -18,11 +20,16 @@
 </div>
 <div class="topmenu">
 <ul>
-  <li><a href="/home">Home</a></li>
+  <li><a href="/signup">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
+<form action="/logout">
+ 
  <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
+</form>
+  
+  <li class="pull-right"><a href="/connectivity"><img src="/static/images/admin.png" height="35px" width="40px" /> {{ username }}</a></li>
 </ul>
 </div>
 
@@ -33,15 +40,25 @@
 <div class="welcome">
 <h1 class="title">Raspberry Pi -<span> Samba Share</span></h1>
 
+{% if result %}
+<div class="alert alert-danger">
+<p class="blinking" style="color:RED; font-size : 18px;">{{ result }}</p>
+  </div>     
+ {% endif %}
+
 
 <div class="table-responsive">
+
+<form class="form-inline" action="/share" method="post">
 <table class="table" style="font-size: 20px;">
 <tr>
 <td>
 Enter Directory Name : 
 </td>
 <td>
-<input class="form-control" type="textbox" autofocus/>
+
+<input class="form-control" placeholder="Directory path" name="directory" type="textbox" value="{{
+          request.form.directory }}" required autofocus></input>
 </td>
 </tr>
 <tr>
@@ -49,7 +66,8 @@ Enter Directory Name :
 Enter Network :
 </td>
 <td>
-<input class="form-control" type="textbox"/>
+<input class="form-control" placeholder="Network" name="network" type="textbox" value="{{
+          request.form.network }}" required></input>
 </td>
 </tr>
 <tr>
@@ -57,7 +75,8 @@ Enter Network :
 Share Name :
 </td>
 <td>
-<input class="form-control" type="textbox"/>
+<input class="form-control" placeholder="Share Name" name="share_name" type="textbox" value="{{
+          request.form.share_name }}" required></input>
 </td>
 </tr>
 <tr>
@@ -65,7 +84,8 @@ Share Name :
 Enter Username :
 </td>
 <td>
-<input class="form-control" type="textbox"/>
+<input class="form-control" placeholder="User" name="user" type="textbox" value="{{
+          request.form.user }}" required></input>
 </td>
 </tr>
 <tr>
@@ -73,7 +93,8 @@ Enter Username :
 Password
 </td>
 <td>
-<input class="form-control" type="textbox"/>
+<input class="form-control" placeholder="Samba Password" name="password" type="password" value="{{
+          request.form.password }}" required></input>
 </td>
 </tr>
 
@@ -82,6 +103,31 @@ Password
 <input type="submit" class= "btn btn-primary" value="Share"/>
 </center>
 </div>
+</form>
+
+<h2> Samba Shared on Network </h2>
+
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+Directory Name
+</td>
+<td>
+Share Name
+</td>
+</tr>
+{% for row in data %}
+    <tr>
+    {% for d in row %}
+        <td>{{ d }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+
+</table>
+</div>
+
 
 
 </div>

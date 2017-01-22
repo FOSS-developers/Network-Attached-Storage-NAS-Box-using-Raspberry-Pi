@@ -1,0 +1,144 @@
+-- MySQL dump 10.16  Distrib 10.1.20-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: localhost
+-- ------------------------------------------------------
+-- Server version	10.1.20-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ftp`
+--
+
+DROP TABLE IF EXISTS `ftp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ftp` (
+  `username` varchar(20) DEFAULT NULL,
+  `directory` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ftp`
+--
+
+LOCK TABLES `ftp` WRITE;
+/*!40000 ALTER TABLE `ftp` DISABLE KEYS */;
+INSERT INTO `ftp` VALUES ('admin','/var/www'),('admin','/etc/');
+/*!40000 ALTER TABLE `ftp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `log`
+--
+
+DROP TABLE IF EXISTS `log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `log` (
+  `username` varchar(20) DEFAULT NULL,
+  `intime` varchar(40) DEFAULT NULL,
+  `outtime` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `log`
+--
+
+LOCK TABLES `log` WRITE;
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+INSERT INTO `log` VALUES ('admin','2017-01-21 19:30','none'),('jatan','2017-01-21 19:30','none'),('jatan','2017-01-21 19:31','none'),('admin','2017-01-21 19:55','127.0.0.1'),('jatan','2017-01-21 19:56','172.22.24.205'),('admin','2017-01-21 19:57','172.22.24.205'),('admin','2017-01-21 21:25','127.0.0.1'),('admin','2017-01-21 21:47','127.0.0.1'),('admin','2017-01-21 21:49','172.22.24.220'),('admin','2017-01-21 21:49','172.22.24.220'),('jatan','2017-01-21 21:53','172.22.24.220'),('admin','2017-01-21 21:56','172.22.24.220'),('admin','2017-01-21 21:58','172.22.24.220'),('admin','2017-01-21 22:05','127.0.0.1'),('admin','2017-01-21 22:35','127.0.0.1'),('admin','2017-01-21 22:37','172.22.24.220'),('admin','2017-01-21 22:39','172.22.24.220'),('admin','2017-01-21 23:20','127.0.0.1'),('admin','2017-01-21 23:37','127.0.0.1'),('admin','2017-01-21 23:57','127.0.0.1'),('admin','2017-01-22 00:19','127.0.0.1'),('admin','2017-01-22 00:34','127.0.0.1'),('admin','2017-01-22 01:07','127.0.0.1');
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `login`
+--
+
+DROP TABLE IF EXISTS `login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `login` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `login`
+--
+
+LOCK TABLES `login` WRITE;
+/*!40000 ALTER TABLE `login` DISABLE KEYS */;
+INSERT INTO `login` VALUES ('admin','admin'),('nk','nik'),('nikhil','nikhil'),('jatan','jatan');
+/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `samba`
+--
+
+DROP TABLE IF EXISTS `samba`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `samba` (
+  `directory` varchar(100) DEFAULT NULL,
+  `share_name` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `samba`
+--
+
+LOCK TABLES `samba` WRITE;
+/*!40000 ALTER TABLE `samba` DISABLE KEYS */;
+INSERT INTO `samba` VALUES ('/var/www','HTTP'),('/var/run','media'),('/etc/','jatan'),('/etc/112','jatan'),('directory','share_name'),('/dev','rit234'),('/dev/1','ri46');
+/*!40000 ALTER TABLE `samba` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `web`
+--
+
+DROP TABLE IF EXISTS `web`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `web` (
+  `project_name` varchar(20) DEFAULT NULL,
+  `url` varchar(40) DEFAULT NULL,
+  `port` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `web`
+--
+
+LOCK TABLES `web` WRITE;
+/*!40000 ALTER TABLE `web` DISABLE KEYS */;
+INSERT INTO `web` VALUES ('rit','/ritfacebook',80),('first','/first',NULL);
+/*!40000 ALTER TABLE `web` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-01-22 14:13:54
