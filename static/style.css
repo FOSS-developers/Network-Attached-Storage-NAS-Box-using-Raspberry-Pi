@@ -2,12 +2,15 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #313030;
-	background-color: #027fcf;
-	background-image: url(../static/images/top-rept.jpg);
+	background-color: #0c0c0c;
+	background-image: url(../static/images/black.jpg);
 	background-repeat: repeat-x;
 	background-position: left top;
 	margin: 0px;
 }
+
+
+
 h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, input, textarea {
 	padding: 0px;
 	margin: 0px;

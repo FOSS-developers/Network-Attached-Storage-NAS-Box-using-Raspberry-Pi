@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="main-out">
+<img class="pull-right" src="/static/images/logo.svg">
 <div class="main">
 <div class="page">
 <div class="top">
@@ -18,11 +19,16 @@
 </div>
 <div class="topmenu">
 <ul>
- <li><a href="/home">Home</a></li>
+ <li><a href="/signup">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
+ <form action="/logout">
+ 
  <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
+</form>
+  
+  <li class="pull-right"><a href="/connectivity"><img src="/static/images/admin.png" height="35px" width="40px" /> {{ username }}</a></li>
 </ul>
 </div>
 

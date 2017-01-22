@@ -1,0 +1,156 @@
+
+
+.login-rcue {
+  height: 100%; }
+  .login-rcue body {
+    background: #1D2226 url('/static/dashboard/img/bg-login.jpg?639310f302a2') repeat-x 45% 0 !important;
+    background-size: 100% auto !important;
+    color: #fff; }
+    .login-rcue #brand {
+      position: relative;
+      top: -70px; }
+      .login-rcue #brand img {
+        display: block;
+        height: 18px;
+        margin: 0;
+        max-width: 100%;
+        text-align: left; }
+  .login-rcue .btn-primary {
+    background-color: #1aa3dc;
+    
+    border-color: #267da1;
+    border-color: rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 1px !important;
+    -webkit-border-radius: 1px !important;
+    border-radius: 1px !important;
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 10px;
+    text-shadow: none; }
+    .login-rcue .btn-primary:active {
+      -moz-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3); }
+      .login-rcue .btn-primary:hover, .login-rcue .btn-primary:focus,
+      .login-rcue .btn-primary:active, .login-rcue .btn-primary.active,
+      .login-rcue .btn-primary.disabled, .login-rcue .btn-primary[disabled] {
+        background-color: #189ad1; }
+  .login-rcue .container {
+    background-color: #252a2e;
+    background-color: rgba(0, 0, 0, 0.3);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    bottom: 13%;
+    clear: right;
+    padding-bottom: 15px;
+    padding-left: 80px;
+    padding-top: 20px;
+    position: absolute;
+    width: 100%; }
+    .login-rcue .container .details {
+      border-left: 1px solid #474747;
+      padding-left: 40px; }
+      .login-rcue .container .details p {
+        margin-bottom: 2px; }
+    .login-rcue .container .control-group {
+      margin-bottom: 15px; }
+      .login-rcue .container .submit {
+        text-align: right; }
+  .login-rcue .modal-body {
+    padding: 0; }
+    .login-rcue .modal-body .alert-danger {
+      background: transparent;
+      border: 0;
+      color: #E01212;
+      padding: 0;
+      text-shadow: NONE; }
+      .login-rcue .modal-body .errorlist {
+        padding-left: 0; }
+        .login-rcue .modal-body fieldset .form-group input {
+          border-radius: 1px;
+          height: 26px;
+          margin-bottom: 0;
+          padding: 2px 6px; }
+          .login-rcue .modal-body label {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 400;
+            margin: 0 auto 5px;
+            text-align: left; }
+  .login-rcue .modal-footer {
+    background-color: transparent;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border-top: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0; }
+    .login-rcue .modal-footer .btn {
+      margin-left: 0; }
+  .login-rcue .modal-header {
+    display: none; }
+    .login-rcue #redhat {
+      display: block;
+      float: right;
+      margin: 50px 64px 70px auto;
+      position: relative;
+      text-align: center; }
+      .login-rcue .rhlogin {
+        width: 400px; }
+
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0; }
+
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0; }
+ .form-control, .datepicker input {
+                      display: block;
+                      width: 100%;
+                      height: 32px;
+                      padding: 6px 12px;
+                      font-size: 13px;
+                      line-height: 1.42857;
+                      color: #555;
+                      background-color: #fff;
+                      background-image: none;
+                      border: 1px solid #ccc;
+                      border-radius: 4px;
+                       }
+.modal-footer {
+          padding: 15px;
+          text-align: right;
+          border-top: 1px solid #e5e5e5; }
+          .modal-footer .btn + .btn {
+            margin-left: 5px;
+            margin-bottom: 0; }
+            .modal-footer .btn-group .btn + .btn {
+              margin-left: -1px; }
+              .modal-footer .btn-block + .btn-block {
+                margin-left: 0; }
+
+.form-group {
+  margin-bottom: 15px; }
+

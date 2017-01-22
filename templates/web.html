@@ -19,11 +19,11 @@
 </div>
 <div class="topmenu">
 <ul>
- <li><a href="/signup">Home</a></li>
+  <li><a href="/signup">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
- <form action="/logout">
+<form action="/logout">
  
  <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
 </form>
@@ -37,27 +37,94 @@
 <div class="content-left">
 <div class="row1">
 <div class="welcome">
-<h1 class="title">Raspberry Pi -<span> Help</span></h1>
+<h1 class="title">Raspberry Pi -<span> Web Service</span></h1>
+
 {% if result %}
 <div class="alert alert-danger">
 <p class="blinking" style="color:RED; font-size : 18px;">{{ result }}</p>
   </div>     
  {% endif %}
-<form class="form-inline" action="/contact" method="post">
- Your Name : <input class="form-control" placeholder="Name" name="name" type=text value="{{
-          request.form.name }}" required autofocus></input><br><br>
- Your E-mail : <input class="form-control" placeholder="Email" name="email" type=email value="{{
-          request.form.email }}" required></input><br><br>
- Message : <textarea  class="form-control" name="message" value="{{ request.form.message }}"  rows="4" cols="20" required>
 
-</textarea>
-<br><br>
-<input type=submit class="btn btn-primary" value=Submit style="margin-left : 150px"> <br><br>
 
-<br>
+<div class="table-responsive">
+
+<form class="form-inline" action="/start_web" method="post" enctype = "multipart/form-data">
+<table class="table" style="font-size: 20px;">
+
+<tr>
+<td>
+Enter Project Name : 
+</td>
+<td>
+
+<input class="form-control" placeholder="Folder Name" name="project_name" type="textbox" value="{{
+          request.form.project_name }}" required autofocus></input>
+</td>
+</tr>
+
+<tr>
+<td>
+Enter Directory Path : 
+</td>
+<td>
+
+         <input type = "file" name = "file" required/>
+</td>
+</tr>
+<tr>
+<td>
+Enter Config File Name :
+</td>
+<td>
+<input class="form-control" placeholder="Configuration file" name="config_name" type="textbox" value="{{
+          request.form.config_name }}" required></input>
+</td>
+</tr>
+<tr>
+<td>
+Enter URL required :
+</td>
+<td>
+<input class="form-control" placeholder="URL required" name="url" type="textbox" value="{{
+          request.form.url }}" required></input>
+</td>
+</tr>
+
+
+</table>
+<center>
+<input type="submit" class= "btn btn-primary" value="Host Website"/>
+</center>
+</div>
 </form>
 
-  
+<h2> Website Hosted </h2>
+
+<div class="table-responsive">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+Project Name
+</td>
+<td>
+URL Name
+</td>
+<td>
+Port
+</td>
+</tr>
+{% for row in data %}
+    <tr>
+    {% for d in row %}
+        <td>{{ d }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+
+</table>
+</div>
+
+
 
 </div>
 </div>
@@ -90,7 +157,7 @@
 <div class="content-right">
 <h2>Main Menu</h2>
 <ul>
-    <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+ <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
   <li><a href="/control_panel">Control Panel</a></li>
   <li><a href="/video">Video Station</a></li>
   <li><a href="/audio">Audio Station</a></li>
@@ -98,6 +165,7 @@
   <li><a href="/download">Download Station</a></li>
   <li><a href="/log">Log Center</a></li>
   <li><a href="/help">Help</a></li>
+ 
 </ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

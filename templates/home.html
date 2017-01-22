@@ -1,11 +1,11 @@
- <!DOCTYPE html>
-<html>
-<head>
- <title>Raspberry Pi NAS Box</title>
- <link href="static/style.css" rel="stylesheet" type="text/css">
- <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css"> 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html xml:lang="en" class="login-rcue" lang="en"><head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Login - NAS Box Dashboard</title>
+    
+<link rel="stylesheet" href="/static/home.css" type="text/css" media="screen">
+<script src="/static/jquery-3.1.0.min.js"></script>
+
 <script>
 function blinker() {
 	$('.blinking').fadeOut(500);
@@ -13,61 +13,99 @@ function blinker() {
 }
 setInterval(blinker, 1000);
 </script>
-</head>
-<body>
-<div class="main-out">
-<div class="main">
-<div class="page">
-<div class="top">
-<div class="books">
-<div class="header-top" class="page-header">
-<h1><span>Welcome to Raspberry Pi NAS Box</span></h1>
 
-</div>
-<div class="topmenu">
-<ul>
-  <li class="active"><a href="/">Login</a></li>
-  <li><a href="/register">Register </a></li>
+  </head>
+  <body id="splash">
+    <a href="http://www.redhat.com/" id="redhat">
+      <img src="/static/images/logo.svg" alt="Red Hat">
+    </a>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span12">
+          <div id="brand">
+            <img src="/static/images/brand.png">
+          </div><!--/#brand-->
+        </div><!--/.span*-->
+        <div id="" class="rhlogin">
+  <div class="">
+    <div class="">
+      <div class="modal-header">
+        
+        <h3>Log In</h3>
+      </div>
+      
+
+      <form id="" ng-controller="DummyCtrl" name="" autocomplete="on" class="" action="/signup" method="POST">
+        <div class="modal-body clearfix">
+  <fieldset>
+    
+
+
+<div class="form-group ">
   
-</ul>
+    
+      <label class="control-label  " for="id_username">User Name</label>
+      
+    
+
+    <div class=" ">
+      <input autofocus="autofocus" class="form-control" id="id_username" name="username" type="text" required>
+      
+    </div>
+  
 </div>
 
-</div>
-<div class="content">
-<div class="content-left">
-<div class="row1">
 
-<div class="welcome">
-<center>
-<br><br><br>
-<form class="form-inline" action="/signup" method="post">
- Username : <input class="form-control" placeholder="Username" name="username" type=text value="{{
-          request.form.username }}" required autofocus></input><br><br>
- Password : <input class="form-control" placeholder="Password" name="password" type=password value="{{
-          request.form.password }}" required></input><br><br>
-<input type=submit class="btn btn-primary" value=Login> <br><br>
-<a href="forget.html">Forget Password</a>
-<br>
-</form>
- {% if error %}
-<div class="alert alert-danger">
+  
+
+<div class="form-group ">
+  
+    
+      <label class="control-label  " for="id_password">Password</label>
+      
+    
+
+    <div class=" ">
+      <input class="form-control" id="id_password" name="password" type="password" required>
+      
+    </div>
+  
+</div>
+
+
+
+  </fieldset>
+
+        </div>
+        <div class="modal-footer">
+        
+  <button type="submit" class="btn btn-primary btn-large">Sign In</button>
+
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+{% if error %}
+
 <p class="blinking" style="color:RED; font-size : 24px;">Error: {{ error }}</p>
-  </div>     
+  
  {% endif %}
-</center>
-</div>
-</div>
-</div>
-<div class="content-right">
-<img src="/static/images/logo.svg">
-</div>
-<div class="bottom">
-<ul>
-  <li style="border-left: medium none;">
-  <li><a href="/">Login</a></li>
-  <li><a href="/register">Register </a></li>
-</ul>
 
 
-</body>
-</html>
+      </div>
+    </div>
+  
+
+</body></html> 
+
+
+
+
+
+
+
+
+

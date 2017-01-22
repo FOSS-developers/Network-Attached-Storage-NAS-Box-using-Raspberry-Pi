@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="main-out">
+<img class="pull-right" src="/static/images/logo.svg">
 <div class="main">
 <div class="page">
 <div class="top">
@@ -18,11 +19,16 @@
 </div>
 <div class="topmenu">
 <ul>
- <li><a href="/home">Home</a></li>
+ <li><a href="/signup">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
+<form action="/logout">
+ 
  <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
+</form>
+  
+  <li class="pull-right"><a href="/connectivity"><img src="/static/images/admin.png" height="35px" width="40px" /> {{ username }}</a></li>
 </ul>
 </div>
 
@@ -32,6 +38,12 @@
 <div class="row1">
 <div class="welcome">
 <h1 class="title">Raspberry Pi NAS -<span> Control Panel</span></h1>
+
+{% if result %}
+<div class="alert alert-danger">
+<p class="blinking" style="color:RED; font-size : 18px;">{{ result }}</p>
+  </div>     
+ {% endif %}
 
 
 <h2>File Sharing</h2>
@@ -66,7 +78,7 @@
 
 
 <td>
-User
+<a href="/user">User</a>
 </td>
 
 
@@ -89,39 +101,46 @@ Domain/LDAP
 
 <tr>
 <td>
-Network
+<img src="/static/images/web.jpg" height="50px" width="50px"/>
 </td>
 <td>
-{{ serial }}
+<img src="/static/images/user.jpg" height="50px" width="50px"/>
+</td>
+<td>
+<img src="/static/images/user.jpg" height="50px" width="50px"/>
+</td>
+<td>
+<img src="/static/images/group.png" height="50px" width="50px"/>
+</td>
+<td>
+<img src="/static/images/domain.png" height="50px" width="50px"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<a href="/web">Web Service</a>
 </td>
 
 <td>
 DHCP Service
 </td>
-<td>
-{{ start_time }}
-</td>
+
 
 <td>
-User
+<a href="/ftp">FTP Service</a>
 </td>
-<td>
-{{ running_duration }}
-</td>
+
 
 <td>
 Group
 </td>
-<td>
-{{ release }}
-</td>
+
 
 <td>
 Domain/LDAP
 </td>
-<td>
-<!{{ IP }}>
-</td>
+
 </tr>
 </table>
 </div>

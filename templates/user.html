@@ -19,11 +19,11 @@
 </div>
 <div class="topmenu">
 <ul>
- <li><a href="/signup">Home</a></li>
+  <li><a href="/signup">Home</a></li>
   <li><a href="/about">About Us </a></li>
   <li><a href="/new">What's New</a></li>
   <li><a href="/connectivity">Connectivity</a></li>
- <form action="/logout">
+<form action="/logout">
  
  <button class="btn btn-danger pull-right" style="margin-right:10px">Logout</button>
 </form>
@@ -37,27 +37,50 @@
 <div class="content-left">
 <div class="row1">
 <div class="welcome">
-<h1 class="title">Raspberry Pi -<span> Help</span></h1>
+<h1 class="title">Raspberry Pi -<span> User Management</span></h1>
+
 {% if result %}
 <div class="alert alert-danger">
 <p class="blinking" style="color:RED; font-size : 18px;">{{ result }}</p>
   </div>     
  {% endif %}
-<form class="form-inline" action="/contact" method="post">
- Your Name : <input class="form-control" placeholder="Name" name="name" type=text value="{{
-          request.form.name }}" required autofocus></input><br><br>
- Your E-mail : <input class="form-control" placeholder="Email" name="email" type=email value="{{
-          request.form.email }}" required></input><br><br>
- Message : <textarea  class="form-control" name="message" value="{{ request.form.message }}"  rows="4" cols="20" required>
 
-</textarea>
-<br><br>
-<input type=submit class="btn btn-primary" value=Submit style="margin-left : 150px"> <br><br>
 
-<br>
+<div class="table-responsive">
+
+<form class="form-inline" action="user" method="post">
+<table class="table" style="font-size: 20px;">
+<tr>
+<td>
+Enter User Name : 
+</td>
+<td>
+
+<input class="form-control" placeholder="Username" name="username" type="textbox" value="{{
+          request.form.username }}" required autofocus></input>
+</td>
+</tr>
+
+<tr>
+<td>
+Enter Password : 
+</td>
+<td>
+
+<input class="form-control" placeholder="Password" name="password" type="password" value="{{
+          request.form.password }}" required></input>
+</td>
+</tr>
+
+</table>
+<center>
+<input type="submit" class= "btn btn-primary" value="Create User"/>
+</center>
+</div>
 </form>
 
-  
+
+
 
 </div>
 </div>
@@ -90,7 +113,7 @@
 <div class="content-right">
 <h2>Main Menu</h2>
 <ul>
-    <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
+ <li style="border-top: medium none;"><a href="/browse">File Station</a></li>
   <li><a href="/control_panel">Control Panel</a></li>
   <li><a href="/video">Video Station</a></li>
   <li><a href="/audio">Audio Station</a></li>
@@ -98,6 +121,7 @@
   <li><a href="/download">Download Station</a></li>
   <li><a href="/log">Log Center</a></li>
   <li><a href="/help">Help</a></li>
+ 
 </ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
