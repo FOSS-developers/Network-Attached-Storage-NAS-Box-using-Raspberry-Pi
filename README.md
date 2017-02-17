@@ -4,25 +4,45 @@ whenever you need them.
 To get started, you need to have Python and Flask installed.
 Clone this repository and run the following commands to install prerequisites.
 
-Initial setup
+## Initial setup
 
-Installing Flask
-sudo apt-get install python-opencv
+### Installing Flask
+sudo apt-get install python-opencv 
+
+
 sudo apt-get install python-mysql.connector
+
+
 sudo apt-get install python-pip
+
+
 pip install flask
+
+
 pip install flask_mail
+
+
 pip install mysql
 
-Installing MariaDB database
+
+
+### Installing MariaDB database
 sudo apt-get install mariadb-server
+
+
 mysql_secure_installation
 
-Importing database
-mysql -u root -p
-mysql -u root -p nas < nas.dump 
 
-Deploy flask app
+
+### Importing database
+mysql -u root -p
+
+
+mysql -u root -p nas < nas.dump
+
+
+
+### Deploy flask app
 
 1. Run a local server (python app.py)
 
