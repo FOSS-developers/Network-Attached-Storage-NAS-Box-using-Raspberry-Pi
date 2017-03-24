@@ -6,6 +6,11 @@ Clone this repository and run the following commands to install prerequisites.
 
 ## Initial setup
 
+You can run setup.py for installation of all pre-requisites having MariaDb database user as root and password
+as root.
+OR
+You can manually install pre-requisites as follows.
+
 ### Installing Flask
 sudo apt-get install python-opencv 
 
