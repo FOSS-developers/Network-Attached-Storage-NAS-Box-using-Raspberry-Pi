@@ -1,7 +1,11 @@
 # Network-Attached-Storage-NAS-Box-using-Raspberry-Pi
 Network Attached Storage (NAS) Box using Raspberry Pi allows you to install comprehensive applications and services on your Raspberry Pi,
 whenever you need them.
+
+
 ![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/1.png "Graphical User Interface")
+
+
 To get started, you need to have Python and Flask installed.
 Clone this repository and run the following commands to install prerequisites.
 
