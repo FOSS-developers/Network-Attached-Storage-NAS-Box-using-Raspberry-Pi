@@ -11,7 +11,7 @@ The connectivity of NAS Box in network is as follows:
 
 The technology stack includes:
 
-![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/technical.jpg "Technology Stack)
+![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/technical.jpg "Technology Stack")
 
 To get started, you need to have Python and Flask installed.
 Clone this repository and run the following commands to install prerequisites.
