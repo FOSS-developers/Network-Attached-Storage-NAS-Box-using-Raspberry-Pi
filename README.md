@@ -24,46 +24,32 @@ OR
 You can manually install pre-requisites as follows.
 
 ### Installing Flask
-sudo apt-get install python-opencv 
-
-
-sudo apt-get install python-mysql.connector
-
-
-sudo apt-get install python-pip
-
-
-pip install flask
-
-
-pip install flask_mail
-
-
-pip install mysql
-
-
+    ```sh
+    $ sudo apt-get install python-opencv 
+    $ sudo apt-get install python-mysql.connector
+    $ sudo apt-get install python-pip
+    $ pip install flask
+    $ pip install flask_mail
+    $ pip install mysql
+    ```
 
 ### Installing MariaDB database
-sudo apt-get install mariadb-server
-
-
-mysql_secure_installation
-
-
+    ```sh
+    $ sudo apt-get install mariadb-server
+    $ mysql_secure_installation
+    ```
 
 ### Importing database
-mysql -u root -p
-
-
-mysql -u root -p nas < nas.dump
-
-
+    ```sh
+    $ mysql -u root -p
+    $ mysql -u root -p nas < nas.dump
+    ```
 
 ### Deploy flask app
 
-1. Run a local server (python app.py)
-
+1. Run a local server
+    ```sh
+    $ python app.py
+    ```
 2. Next, browse to http://0.0.0.0:5000
-
-
 
