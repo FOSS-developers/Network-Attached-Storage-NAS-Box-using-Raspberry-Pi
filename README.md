@@ -3,15 +3,15 @@ Network Attached Storage (NAS) Box using Raspberry Pi allows you to install comp
 whenever you need them.
 
 
-![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/1.png "Graphical User Interface")
+![Graphical User Interface](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/1.png "Graphical User Interface")
 
 The connectivity of NAS Box in network is as follows:
 
-![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/connectivity.jpg "Connectivity Diagram")
+![Connectivity Diagram](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/connectivity.jpg "Connectivity Diagram")
 
 The technology stack includes:
 
-![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/technical.jpg "Technology Stack")
+![Technology Stack](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/technical.jpg "Technology Stack")
 
 To get started, you need to have Python and Flask installed.
 Clone this repository and run the following commands to install prerequisites.
@@ -24,46 +24,32 @@ OR
 You can manually install pre-requisites as follows.
 
 ### Installing Flask
-sudo apt-get install python-opencv 
-
-
-sudo apt-get install python-mysql.connector
-
-
-sudo apt-get install python-pip
-
-
-pip install flask
-
-
-pip install flask_mail
-
-
-pip install mysql
-
-
+```sh
+$ sudo apt-get install python-opencv 
+$ sudo apt-get install python-mysql.connector
+$ sudo apt-get install python-pip
+$ pip install flask
+$ pip install flask_mail
+$ pip install mysql
+```
 
 ### Installing MariaDB database
-sudo apt-get install mariadb-server
-
-
-mysql_secure_installation
-
-
+```sh
+$ sudo apt-get install mariadb-server
+$ mysql_secure_installation
+```
 
 ### Importing database
-mysql -u root -p
-
-
-mysql -u root -p nas < nas.dump
-
-
+```sh
+$ mysql -u root -p
+$ mysql -u root -p nas < nas.dump
+```
 
 ### Deploy flask app
 
-1. Run a local server (python app.py)
-
+1. Run a local server
+    ```sh
+    $ python app.py
+    ```
 2. Next, browse to http://0.0.0.0:5000
-
-
 
