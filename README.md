@@ -3,15 +3,15 @@ Network Attached Storage (NAS) Box using Raspberry Pi allows you to install comp
 whenever you need them.
 
 
-![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/1.png "Graphical User Interface")
+![Graphical User Interface](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/1.png "Graphical User Interface")
 
 The connectivity of NAS Box in network is as follows:
 
-![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/connectivity.jpg "Connectivity Diagram")
+![Connectivity Diagram](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/connectivity.jpg "Connectivity Diagram")
 
 The technology stack includes:
 
-![Alt text](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/technical.jpg "Technology Stack")
+![Technology Stack](https://github.com/ntkathole/Network-Attached-Storage-NAS-Box-using-Raspberry-Pi/blob/master/technical.jpg "Technology Stack")
 
 To get started, you need to have Python and Flask installed.
 Clone this repository and run the following commands to install prerequisites.
