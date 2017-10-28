@@ -17,12 +17,14 @@ import flask
 music_dir = '/home/pi/Desktop/nikhil/static/music'
 video_dir = '/home/pi/Desktop/nikhil/static/video'
 image_dir = '/home/pi/Desktop/nikhil/static/image'
-upload_dir= '/home/pi/Desktop/nikhil/Private_cloud'
+upload_dir = '/home/pi/Desktop/nikhil/Private_cloud'
 
 
 app = Flask(__name__)
 app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KT'
-mariadb_connection = mariadb.connect(user='root', password='root', database='nas')
+mariadb_connection = mariadb.connect(
+    user='root', password='root', database='nas'
+)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
@@ -34,194 +36,215 @@ app.config['BACKUP_FOLDER'] = '/home/pi/Desktop/nikhil/Backup'
 
 mail = Mail(app)
 
+
 def get_ip():
-	return request.remote_addr
+    return request.remote_addr
+
 
 @app.route('/')
 def home():
-   if 'username' in session:
-         username = session['username']
-         return redirect(url_for('signup'))
-   return render_template('home.html')
+    if 'username' in session:
+        username = session['username']
+        return redirect(url_for('signup'))
+    return render_template('home.html')
 
-@app.route('/signup', methods = ['GET','POST'])
+
+@app.route('/signup', methods = ['GET', 'POST'])
 def signup():
-   now = datetime.datetime.now()
-   timeString = now.strftime("%Y-%m-%d %H:%M")
-   remote_ip=get_ip()
-   error = None
-   if request.method == 'GET':
-        error= None
+    now = datetime.datetime.now()
+    timeString = now.strftime("%Y-%m-%d %H:%M")
+    remote_ip=get_ip()
+    error = None
+    if request.method == 'GET':
+        error = None
         if 'username' in session:
-          username = session['username']
-          return render_template('monitor.html',username=username)
-          #return render_template('index.html' ,username=username , **templateData)
-        error="Login first"
+            username = session['username']
+            return render_template('monitor.html', username=username)
+            # return render_template('index.html' ,username=username
+            # , **templateData)
+        error = "Login first"
         return render_template('home.html',error=error)
-   if request.method == 'POST':
-       username=request.form['username']
-       password=request.form['password']
-       cursor = mariadb_connection.cursor()
-       query = "SELECT * FROM `login` WHERE `username` = %s AND `password` = %s"
-       cursor.execute(query, (username, password))   
-       if cursor.fetchone():
-                    session['username']=request.form['username']
-                    cursor = mariadb_connection.cursor()
-                    cursor.execute("insert into log values(%s,%s,%s)",(username,timeString,remote_ip)) 
-                    mariadb_connection.commit()
-                    return render_template('monitor.html',username=username)
-                    #return render_template('index.html',username=username , **templateData)
-       else:
-            
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        cursor = mariadb_connection.cursor()
+        query = "SELECT * FROM `login` WHERE `username` = %s AND `password` = %s"
+        cursor.execute(query, (username, password))
+        if cursor.fetchone():
+            session['username'] = request.form['username']
+            cursor = mariadb_connection.cursor()
+            cursor.execute("insert into log values(%s,%s,%s)",
+                           (username,timeString,remote_ip)
+                           )
+            mariadb_connection.commit()
+            return render_template('monitor.html', username=username)
+            # return render_template('index.html',username=username , **templateData)
+        else:
             error = "Invalid Credentials. Please try again."
-   return render_template('home.html', error=error)
-@app.route('/restart', methods = ['POST'])
+    return render_template('home.html', error=error)
+
+
+@app.route('/restart', methods=['POST'])
 def restart():
-  error= None
-  if 'username' in session:
-     username = session['username']
-     os.system("init 6")
-  error="Login first"
-  return render_template('home.html',error=error)
+    error = None
+    if 'username' in session:
+        username = session['username']
+        os.system("init 6")
+    error="Login first"
+    return render_template('home.html',error=error)
+
+
 @app.route('/register')
 def register():
-     return render_template('register.html')
+    return render_template('register.html')
+
 
 @app.route('/backup')
 def backup():
-  error= None
-  if 'username' in session:
-     username = session['username']
-     return render_template('backup.html',username=username)
-  error="Login first"
-  return render_template('home.html',error=error)
+    error = None
+    if 'username' in session:
+        username = session['username']
+        return render_template('backup.html', username=username)
+    error = "Login first"
+    return render_template('home.html', error=error)
+
 
 @app.route('/start_backup',methods=['POST'])
 def start_backup():
-  error= None
-  result=None
-  if 'username' in session:
-     username = session['username']
-     f = request.files['file']
-     f.save(os.path.join(app.config['BACKUP_FOLDER'], f.filename))
-     result="Folder Backup Scheduled!"
-     return render_template('backup.html',username=username,result=result)
-  error="Login first"
-  return render_template('home.html',error=error)
+    error = None
+    result = None
+    if 'username' in session:
+        username = session['username']
+        f = request.files['file']
+        f.save(os.path.join(app.config['BACKUP_FOLDER'], f.filename))
+        result="Folder Backup Scheduled!"
+        return render_template('backup.html', username=username, result=result)
+    error = "Login first"
+    return render_template('home.html', error=error)
+
 
 @app.route('/samba')
 def samba():
-  error= None
-  data=None
-  if 'username' in session:
-     username = session['username']
-     cursor = mariadb_connection.cursor()
-     cursor.execute("select directory,share_name from samba") 
-     data = cursor.fetchall()  
-     return render_template('samba.html',username=username,data=data)
-  error="Login first"
-  return render_template('home.html',error=error)
+    error = None
+    data = None
+    if 'username' in session:
+        username = session['username']
+        cursor = mariadb_connection.cursor()
+        cursor.execute("select directory,share_name from samba")
+        data = cursor.fetchall()
+        return render_template('samba.html', username=username, data=data)
+    error="Login first"
+    return render_template('home.html', error=error)
 
 
 @app.route('/web')
 def web():
-  error= None
-  data=None
-  if 'username' in session:
-     username = session['username']
-     cursor = mariadb_connection.cursor()
-     cursor.execute("select project_name, url , port from web") 
-     data = cursor.fetchall()  
-     return render_template('web.html',username=username,data=data)
-  error="Login first"
-  return render_template('home.html',error=error)
+    error = None
+    data = None
+    if 'username' in session:
+        username = session['username']
+        cursor = mariadb_connection.cursor()
+        cursor.execute("select project_name, url , port from web")
+        data = cursor.fetchall()
+        return render_template('web.html', username=username, data=data)
+    error="Login first"
+    return render_template('home.html', error=error)
+
 
 @app.route('/ftp')
 def ftp():
-  error= None
-  data=None
-  if 'username' in session:
-     username = session['username']
-     cursor = mariadb_connection.cursor()
-     cursor.execute("select username,directory from ftp") 
-     data = cursor.fetchall()  
-     return render_template('ftp.html',username=username,data=data)
-  error="Login first"
-  return render_template('home.html',error=error)
+    error = None
+    data = None
+    if 'username' in session:
+        username = session['username']
+        cursor = mariadb_connection.cursor()
+        cursor.execute("select username,directory from ftp")
+        data = cursor.fetchall()
+        return render_template('ftp.html', username=username, data=data)
+    error="Login first"
+    return render_template('home.html', error=error)
 
 
-@app.route('/share', methods = ['POST'])
+@app.route('/share', methods=['POST'])
 def share():
-  error= None
-  result=None
-  if request.method == 'POST':
-   if 'username' in session:
-     username = session['username']
-     directory=request.form['directory']
-     network=request.form['network']
-     share_name=request.form['share_name']
-     user=request.form['user']
-     password=request.form['password']
-     '''os.system("mkdir %s"%directory )
-     os.system("chcon -t samba_share_t %s "%directory)
-     os.system('echo [%s] >> /etc/samba/smb.conf'%share_name)
-     os.system('echo comment = public >> /etc/samba/smb.conf')
-     os.system('echo path = %s >> /etc/samba/smb.conf'%directory)
-     os.system('echo public = yes >> /etc/samba/smb.conf')
-     os.system('echo browsable = yes >> /etc/samba/smb.conf')
-     os.system("echo valid users = %s >> /etc/samba/smb.conf"%user)
-     os.system("echo host allow = %s >> /etc/samba/smb.conf"%network)'''
-     cursor = mariadb_connection.cursor()
-     cursor.execute("insert into samba(directory,share_name) values(%s,%s)",(directory,share_name)) 
-     result="Folder shared Successfully!!"
-     mariadb_connection.commit()
-     cursor = mariadb_connection.cursor()
-     cursor.execute("select directory,share_name from samba") 
-     data = cursor.fetchall() 
-     return render_template('samba.html',username=username,result=result,data=data)
-   error="Login first"
-   return render_template('home.html',error=error)
-  error="Login first"
-  return render_template('home.html',error=error)
+    error = None
+    result = None
+    if request.method == 'POST':
+        if 'username' in session:
+            username = session['username']
+            directory = request.form['directory']
+            network = request.form['network']
+            share_name = request.form['share_name']
+            user = request.form['user']
+            password = request.form['password']
+            '''os.system("mkdir %s"%directory )
+            os.system("chcon -t samba_share_t %s "%directory)
+            os.system('echo [%s] >> /etc/samba/smb.conf'%share_name)
+            os.system('echo comment = public >> /etc/samba/smb.conf')
+            os.system('echo path = %s >> /etc/samba/smb.conf'%directory)
+            os.system('echo public = yes >> /etc/samba/smb.conf')
+            os.system('echo browsable = yes >> /etc/samba/smb.conf')
+            os.system("echo valid users = %s >> /etc/samba/smb.conf"%user)
+            os.system("echo host allow = %s >> /etc/samba/smb.conf"%network)'''
+            cursor = mariadb_connection.cursor()
+            cursor.execute(
+                "insert into samba(directory,share_name) values(%s,%s)",
+                (directory,share_name)
+            )
+            result = "Folder shared Successfully!!"
+            mariadb_connection.commit()
+            cursor = mariadb_connection.cursor()
+            cursor.execute("select directory,share_name from samba")
+            data = cursor.fetchall()
+            return render_template(
+                'samba.html', username=username, result=result, data=data
+            )
+            error = "Login first"
+            return render_template('home.html', error=error)
+    error="Login first"
+    return render_template('home.html', error=error)
 
-@app.route('/start_web', methods = ['POST'])
+
+@app.route('/start_web', methods=['POST'])
 def start_web():
-  error= None
-  result=None
-  if request.method == 'POST':
-   if 'username' in session:
-     username = session['username']
-     project_name=request.form['project_name']
-     config_file=request.form['config_name']
-     url=request.form['url']
-     project="sudo mkdir /var/www/html/"+ project_name
-     os.system(project)
-     app.config['PROJECT_FOLDER'] = '/var/www/html/'+project_name
-     f = request.files['file']
-     f.save(os.path.join(app.config['PROJECT_FOLDER'], f.filename))
-     data='<VirtualHost *:80> \nServerAdmin webmaster@localhost\nDocumentRoot "/var/www/html/'+project_name+'"\nServerName localhost\n</VirtualHost>\n<Directory /var/www/html/'+project_name+'>\nrequire all granted\n</Directory>'
-     configure="/etc/apache2/sites-available/"+config_file
-     file=open(configure,"w")
-     file.write(data)
-     file.close()
-     os.system("sudo service apache2 restart ")
+    error= None
+    result=None
+    if request.method == 'POST':
+        if 'username' in session:
+            username = session['username']
+            project_name = request.form['project_name']
+            config_file = request.form['config_name']
+            url = request.form['url']
+            project = "sudo mkdir /var/www/html/"+ project_name
+            os.system(project)
+            app.config['PROJECT_FOLDER'] = '/var/www/html/'+project_name
+            f = request.files['file']
+            f.save(os.path.join(app.config['PROJECT_FOLDER'], f.filename))
+            data='<VirtualHost *:80> \nServerAdmin webmaster@localhost\nDocumentRoot "/var/www/html/'\
+                 +project_name+'"\nServerName localhost\n</VirtualHost>\n<Directory /var/www/html/'\
+                 +project_name+'>\nrequire all granted\n</Directory>'
+            configure = "/etc/apache2/sites-available/"+config_file
+            file = open(configure,"w")
+            file.write(data)
+            file.close()
+            os.system("sudo service apache2 restart ")
+            cursor = mariadb_connection.cursor()
+            cursor.execute("insert into web(project_name,url) values(%s,%s)",(project_name,url))
+            result = "Web hosted Successfully!!"
+            mariadb_connection.commit()
+            cursor = mariadb_connection.cursor()
+            cursor.execute("select project_name,url,port from web")
+            data = cursor.fetchall()
+            return render_template(
+                'web.html', username=username, result=result, data=data
+            )
+            error = "Login first"
+            return render_template('home.html', error=error)
+    error = "Login first"
+    return render_template('home.html', error=error)
 
-  
-     cursor = mariadb_connection.cursor()
-     cursor.execute("insert into web(project_name,url) values(%s,%s)",(project_name,url)) 
-     result="Web hosted Successfully!!"
-     mariadb_connection.commit()
-     cursor = mariadb_connection.cursor()
-     cursor.execute("select project_name,url,port from web") 
-     data = cursor.fetchall() 
-     return render_template('web.html',username=username,result=result,data=data)
-   error="Login first"
-   return render_template('home.html',error=error)
-  error="Login first"
-  return render_template('home.html',error=error)
 
-
-@app.route('/browse', methods = ['GET','POST'])
+@app.route('/browse', methods=['GET', 'POST'])
 def browse():
   error= None
   result=None
